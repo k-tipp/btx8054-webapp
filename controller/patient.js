@@ -111,12 +111,15 @@ function addDataToView(res) {
 
     
     var layout = {
-      margin: {
-        b: 0,
-        t: 0,
-      },
+  margin: {
+    l: 50,
+    r: 50,
+    b: 35,
+    t: 0,
+    pad: 4
+  },
       
-      xaxis: {domain: [0.07, 0.99]}, 
+      xaxis: {domain: [0.09, 0.95]}, 
       yaxis: {
         title: 'Temperature', 
         titlefont: {color: '#1f77b4'}, 
@@ -127,25 +130,24 @@ function addDataToView(res) {
         title: 'Heart rate', 
         titlefont: {color: '#ff7f0e'}, 
         tickfont: {color: '#ff7f0e'}, 
-        anchor: 'x', 
+        anchor: 'free', 
         overlaying: 'y', 
-        side: 'right'
+        side: 'right',
+        position: 0.95
       },      
       yaxis3: {
         title: 'Blood pressure', 
         titlefont: {color: '#d62728'}, 
         tickfont: {color: '#d62728'}, 
-        anchor: 'free', 
+        anchor: 'x', 
         overlaying: 'y', 
         side: 'left', 
-        position: 0.06
       }, 
     };
     
     Plotly.newPlot('dataGraph', data, layout);
     }
 
-    
     var signTypesOptions = null;
  
     for(var type of jsonResponse.vital_sign_types) {

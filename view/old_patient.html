@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title of document</title>
+
+    <link href="../modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <link href="styles/sidebar.css" rel="stylesheet">
+    <script src="../controller/patient.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../modules/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../modules/chartjs/Chart.min.js"></script>
+  </head>
+
+  <body onload="loadDoc()">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="home.html">tippk1's PDMS</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="home.html">Home</a>
+            </li>
+            <li>
+              <a id="nav-patient" href="">&gt; Patient: </a>
+            </li>
+          </ul>
+          <div class="navbar-right">
+            <ul class="nav navbar-nav">
+              <li>
+                <a href="../server/logout.php"> <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout </a>
+              </li>
+            </ul>
+          </div>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar" id="patients"></ul>
+        </div>
+
+        <div class="col-xs-9 col-xs-offset-3 col-md-10 col-md-offset-2">
+          <div class="row">
+            <div class="col-xs-8 col-md-9">
+              <h1 id="page-title">Patient : </h1>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-9 col-md-10">
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-9 col-md-10">
+              <table class='table table-bordered table-condensed'>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Value</th>
+                    <th>Time</th>
+                    <th>Note</th>
+                  </tr>
+                </thead>
+                <tbody id="vital-signs"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-9 col-md-10">
+              <h3>Insert new vital sign</h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-9 col-md-10">
+              <form action='../server/addsign.php' method='post'>
+
+                <input type='hidden' name='patientID' value='patientID'>
+                <select name='signID' id="sign-type-select"></select>
+
+                <div class="form-group">
+                  <label for="value">Value:</label>
+                  <input type="text" class="form-control" name="val" placeholder="Value">
+                </div>
+                <div class="form-group">
+                  <label for="note">Note:</label>
+                  <textarea class="form-control" name="note" placeholder="Note"></textarea>
+                </div>
+                <input type='submit' value='Add sign'>
+              </form>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>

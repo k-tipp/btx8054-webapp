@@ -16,7 +16,7 @@ include('pdo.inc.php');
 
 try {
  //   $dbh = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
- $dbh = new PDO("mysql:host=$hostname;dbname=$dbname", "root", "");
+ $dbh = new PDO("mysql:host=$hostname;dbname=$dbname", $username,$password);
     /*** echo a message saying we have connected ***/
     // echo 'Connected to database<br />';
 

@@ -1,37 +1,39 @@
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BFH-e-Health Login</title>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BFH-e-Health Login</title>
 
-    <link href="modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="view/styles/main.css" rel="stylesheet">
+<link href="modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="view/styles/main.css" rel="stylesheet">
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="modules/bootstrap/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <div class="page-header">
-        <h1>BFH-e-Health Login</h1>
-      </div>
-      <div class="row">
-        <div class="col-xs-4 col-md-4">
-          <form id="login-form" action="server/login.php" method="post">
-            <div class="form-group">
-              <label for="username">Username:</label>
-              <input type="text" class="form-control" name="username" placeholder="Username">
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" class="form-control" name="password" placeholder="Password">
-            </div>
-            <input type ="submit" value="Login" />
-          </form>
-        </div>
-      </div>
-  </body>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="modules/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h1>BFH-e-Health Login</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-4 col-md-4">
+				<form id="login-form" action="server/login.php" method="post">
+					<div class="form-group">
+						<label for="username">Username:</label> <input type="text"
+							class="form-control" name="username" placeholder="Username">
+					</div>
+					<div class="form-group">
+						<label for="password">Password</label> <input type="password"
+							class="form-control" name="password" placeholder="Password">
+					</div>
+					<input type="submit" value="Login" />
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

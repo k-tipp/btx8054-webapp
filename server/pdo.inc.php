@@ -1,12 +1,12 @@
 <?php
 /*** mysql hostname ***/
-$hostname = 'localhost';
+$hostname = 'benoist.ch';
 
 /*** mysql username ***/
-$username = 'root';
+$username = 'macmanu_groupC';
 
 /*** mysql password ***/
-$password = '';
+$password = 'LkLiu87gt*+ws67';
 
-$dbname = 'medizininformatik';
+$dbname = 'macmanu_groupC';
 ?>

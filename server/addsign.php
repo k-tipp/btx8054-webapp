@@ -24,7 +24,7 @@ try {
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     /*** prepare the SQL statement ***/
-    $stmt = $dbh->prepare("INSERT INTO `medizininformatik`.`vital_sign` (`vital_signID`, `patientID`, `signID`, `value`, `time`, `note`) VALUES (NULL, :patientID, :signID, :value, CURRENT_TIMESTAMP, :note);");
+    $stmt = $dbh->prepare("INSERT INTO vital_sign (`vital_signID`, `patientID`, `signID`, `value`, `time`, `note`) VALUES (NULL, :patientID, :signID, :value, CURRENT_TIMESTAMP, :note);");
 
     /*** bind the paramaters ***/
     $stmt->bindParam(':patientID', $patientID, PDO::PARAM_INT);

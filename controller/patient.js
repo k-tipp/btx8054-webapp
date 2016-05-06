@@ -162,6 +162,7 @@ function addDataToView(res) {
     document.getElementById("vital-signs").innerHTML += tableRows;
     document.getElementById("sign-type-select").innerHTML = signTypesOptions;
     document.getElementById("patientID").setAttribute('value', jsonResponse.patient.patientID);
+    document.getElementById("medicationLink").setAttribute('href', "medication.html?id="+jsonResponse.patient.patientID);
     
         
   } catch (ex) {

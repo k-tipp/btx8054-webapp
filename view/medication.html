@@ -3,23 +3,25 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title of document</title>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Title of document</title>
 
-    <link href="../modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="styles/main.css" rel="stylesheet">
-    <script src="../controller/medication.js"></script>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../modules/bootstrap/js/bootstrap.min.js"></script>
-  </head>
+<link href="../modules/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="styles/main.css" rel="stylesheet"/>
+<link href="styles/sidebar.css" rel="stylesheet" />	
+<script src="../controller/medication.js"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../modules/bootstrap/js/bootstrap.min.js"></script>
+</head>
 
-  <body onload="loadDoc()">
- <!--     <nav class="navbar navbar-inverse navbar-fixed-top">
+<body onload="loadDoc()">
+	<!--     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div id="navbar" class="navbar-collapse collapse">
             <a href="../server/logout.php" class="nav navbar-nav navbar-right">
@@ -29,88 +31,98 @@
         </div>
       </div>
   </nav>-->
-    
-    
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="home.html">MY PDMS</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="home.html">Home</a></li>
-            <li><a id="nav-patient" href="">&gt; Patient: </a></li>
-          </ul>
-          <div class="navbar-right">
-            <ul class="nav navbar-nav">
-            <li>
-              <a href="../server/logout.php">
-                <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-                Logout
-              </a>
-            </li>
-          </ul>  
-          </div>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-    
-    
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-md-12">
-          <h1 id="page-title">Patient : </h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-9 col-md-9">
-          <table class='table table-bordered table-condensed'>
-            <thead>
-              <tr>
-                <th>time</th>
-                <th>quantitiy</th>
-                <th>medicament_name</th>
-                <th>nurse_staffID</th>
-                <th>nurse_name</th>
-                <th>nurse_first_name</th>
-                <th>physician_staffID</th>
-                <th>physician_name</th>
-                <th>physician_first_name</th>
-                <th>note</th>
-              </tr>
-            </thead>
-            <tbody id="medications">
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-4 col-md-4">
-          <h3>Insert new vital sign</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-7 col-md-7">
-          <form action='../server/addsign.php' method='post'>
-          
-            <input type='hidden' name='patientID' value='patientID'>
-            <select name='signID' id="sign-type-select">
-            </select>
-      
-            <div class="form-group">
-              <label for="value">Value:</label>
-              <input type="text" class="form-control" name="val" placeholder="Value">
-            </div>
-            <div class="form-group">
-              <label for="note">Note:</label>
-              <textarea class="form-control" name="note" placeholder="Note"></textarea>
-            </div>
-            <input type='submit' value='Add sign'></form>
-          </form>
-        </div>
-      </div>
-    </div>
-  </body>
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="home.html">MY PDMS</a>
+		</div>
+		<div id="navbar" class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="home.html">Home</a></li>
+				<li><a id="nav-patient" href="">&gt; Patient: </a></li>
+			</ul>
+			<div class="navbar-right">
+				<ul class="nav navbar-nav">
+					<li><a href="../server/logout.php"> <span
+							class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+							Logout
+					</a></li>
+				</ul>
+			</div>
+		</div>
+		<!--/.nav-collapse -->
+	</div>
+	</nav>
+
+
+	<div class="container">
+		<div class="col-xs-3 col-md-2 sidebar">
+			<ul class="nav nav-sidebar" id="patients"></ul>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-md-12">
+				<h1 id="page-title">Patient: </h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-9 col-md-9">
+				<table class='table table-bordered table-condensed'>
+					<thead>
+						<tr>
+							<th>Documentation time</th>
+							<th>Amount</th>
+							<th>Name of Medicament</th>
+							<th>Name of the Nurse</th>
+							<th>Name of the Physician</th>
+							<th>note</th>
+						</tr>
+					</thead>
+					<tbody id="medications">
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-4 col-md-4">
+				<h3>Insert new Medicament donation</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-9 col-md-10">
+				<form action='../server/addmedication.php' method='post'>
+					<input type='hidden' id='patientID' name="patientID"
+						value='patientID' />
+					<div class="form-group">
+						<label for="medicament">Medicament and Unit:</label> <select
+							class="form-control" name='medicament' id="medicament-select"
+							placeholder="medicament"></select>
+					</div>
+					<div class="form-group">
+						<label for="quantity">Quantity:</label><input type="number"
+							class="form-control" name="quantity" placeholder="Quantity" />
+					</div>
+					<div class="form-group">
+						<label for="bemerkung">Note:</label>
+						<textarea class="form-control" name="note" placeholder="Note"></textarea>
+					</div>
+					<div class="form-group">
+						<label for="nurse">Nurse:</label> <select
+							class="form-control" name='nurse' id="nurse-select"
+							placeholder="Nurse"></select>
+					</div>
+					<div class="form-group">
+						<label for="doctor">Doctor</label> <select
+							class="form-control" name='doctor' id="doctor-select"
+							placeholder="Doctor"></select>
+					</div>
+					<input type='submit' value='Add Medication' />
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
 
 </html>

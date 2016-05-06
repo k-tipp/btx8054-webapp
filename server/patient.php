@@ -49,7 +49,6 @@ try {
     $response['patient']['patientID'] = $patientID;
 
 
-    /*** echo a message saying we have connected ***/
     $sql = "SELECT name, first_name, value, time, sign_name, note
   FROM patient, vital_sign, sign
   WHERE patient.patientID = vital_sign.patientID

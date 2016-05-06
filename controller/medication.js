@@ -44,7 +44,7 @@ function addDataToView(res) {
     }
 
     var tableRows = "";
-    if(jsonResponse.patient.vital_signs == null || jsonResponse.patient.vital_signs == ""){
+    if(jsonResponse.patient.medications == null || jsonResponse.patient.medications == ""){
     	
     }else
     for(var medication of jsonResponse.patient.medications) {

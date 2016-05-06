@@ -15,8 +15,13 @@ function addDataToView(res) {
 
     var patientsList = ""
     for(var patient of jsonResponse.patients) {
-      patientsList += "<li><a href='patient.html?id=" + patient.patientID +"'>";
-      patientsList += patient.patientName + "</a></li>";
+      if(patient.patientID == jsonResponse.patient.patientID) {
+        patientsList += "<li class='active'><a href='patient.html?id=" + patient.patientID +"'>";
+        patientsList += patient.patientName + "</a></li>";    
+      } else {
+        patientsList += "<li><a href='patient.html?id=" + patient.patientID +"'>";
+        patientsList += patient.patientName + "</a></li>";        
+      }
     }
     
     if(jsonResponse.patient == null || jsonResponse.patient == "") {
@@ -43,7 +48,7 @@ function addDataToView(res) {
       window.alert("Vital sings does not exist!");
     } else {
       for(var sign of jsonResponse.patient.vital_signs) {
-        tableRows += "\t<tr>\n";
+        tableRows += "\t<tr class='sign " + sign.sign_name.toLowerCase().replace(" ", "") + "'>\n";
         tableRows += "\t\t<td>" + sign.sign_name + "\t\t</td>\n";
         tableRows += "\t\t<td>" + sign.value + "\t\t</td>\n";
         tableRows += "\t\t<td>" + sign.time + "\t\t</td>\n";
@@ -164,9 +169,27 @@ function addDataToView(res) {
     document.getElementById("patientID").setAttribute('value', jsonResponse.patient.patientID);
     document.getElementById("medicationLink").setAttribute('href', "medication.html?id="+jsonResponse.patient.patientID);
     
+    var radioButtons = document.getElementsByName("optradio");
+    for (var i = 0; i < radioButtons.length; i++) {
+      radioButtons[i].checked = "false";
+    }
+    document.getElementById("default-filter").checked = "true";
+    
         
   } catch (ex) {
     document.body.innerHTML = "<h1>JS:</h1><p>" + ex + 
       "</p><h1>PHP:</h1><p>" + res.responseText+ "</p>";
+  }
+}
+
+function doFilter(filter) {
+  var signList = document.getElementsByClassName("sign");
+
+  for (var i = 0; i < signList.length; i++) {
+    if(signList[i].classList.contains(filter)) {
+      signList[i].classList.remove("collapse");
+    } else {
+      signList[i].classList.add("collapse");
+    }
   }
 }

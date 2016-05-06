@@ -19,8 +19,13 @@ function addDataToView(res) {
     }
     var patientsList = ""
     for(var patient of jsonResponse.patients) {
-      patientsList += "<li><a href='patient.html?id=" + patient.patientID +"'>";
-      patientsList += patient.patientName + "</a></li>";
+      if(patient.patientID == jsonResponse.patient.patientID) {
+        patientsList += "<li class='active'><a href='patient.html?id=" + patient.patientID +"'>";
+        patientsList += patient.patientName + "</a></li>";    
+      } else {
+        patientsList += "<li><a href='patient.html?id=" + patient.patientID +"'>";
+        patientsList += patient.patientName + "</a></li>";        
+      }
     }
     var doctors = "";    
     for(var doctor of jsonResponse.doctors) {

@@ -12,6 +12,7 @@
 <link href="../modules/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 <link href="styles/main.css" rel="stylesheet" />
 <link href="styles/sidebar.css" rel="stylesheet" />
+<link href="styles/patient.css" rel="stylesheet" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -66,15 +67,25 @@
 				</div>
 
 				<div class="row">
-					<label class="radio-inline"> <input type="radio"
-						name="optradio" /> All
-					</label> <label class="radio-inline"> <input type="radio"
-						name="optradio" /> Temperature
-					</label> <label class="radio-inline"> <input type="radio"
-						name="optradio" /> Heart rate
-					</label> <label class="radio-inline"> <input type="radio"
-						name="optradio" /> Blood preasure
-					</label>
+				  <div class="col-xs-9 col-md-10">
+				    <div id="sign-filter">
+    					<label class="radio-inline">
+    					  <input id="default-filter" type="radio"	name="optradio" onclick="doFilter('sign')" /> All
+    					</label>
+    					<label class="radio-inline">
+    					  <input type="radio" name="optradio" onclick="doFilter('temperature')" /> Temperature
+    					</label>
+    					<label class="radio-inline">
+    					  <input type="radio" name="optradio" onclick="doFilter('pulse')" /> Pulse
+    					</label>
+    					<label class="radio-inline">
+    					  <input type="radio"	name="optradio" onclick="doFilter('bloodpressure')" /> Blood pressure
+    					</label>
+    					<label class="radio-inline">
+                <input type="radio" name="optradio" onclick="doFilter('activity')" /> Activity
+              </label>
+  					</div>
+					</div>
 				</div>
 
 				<div class="row">

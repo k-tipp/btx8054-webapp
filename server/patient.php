@@ -67,7 +67,7 @@ try {
 
       $response['patient']['vital_signs'][] = $sign;
     }
-// SELECT THE VITAL SIGNS OF THE PATIENT
+    
     $sql = "SELECT * FROM sign";
 
     $statement = $dbh -> prepare($sql);

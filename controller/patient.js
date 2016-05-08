@@ -71,86 +71,86 @@ function addDataToView(res) {
         }
       }
       
-    var temperatureTrace = {
-      x: chartData.temperature.time, 
-      y: chartData.temperature.value, 
-      name: 'Temperature', 
-      type: 'scatter',
-      marker: {
-        color: '#1f77b4',
-        line: {
+      var temperatureTrace = {
+        x: chartData.temperature.time, 
+        y: chartData.temperature.value, 
+        name: 'Temperature', 
+        type: 'scatter',
+        marker: {
           color: '#1f77b4',
-        }
-      },
-    };
-    
-    var pulsTrace = {
-      x: chartData.pulse.time, 
-      y: chartData.pulse.value, 
-      name: 'Heart rate', 
-      yaxis: 'y2', 
-      type: 'scatter',
-      marker: {
-        color: '#ff7f0e',
-        line: {
-          color: '#ff7f0e',
-        }
-      },
-    };
-    
-    var bloodTrace = {
-      x: chartData.blood.time, 
-      y: chartData.blood.value, 
-      name: 'Blood pressure', 
-      yaxis: 'y3', 
-      type: 'scatter',
-      marker: {
-        color: '#d62728',
-        line: {
-          color: '#d62728',
-        }
-      },
-    };
-    
-    var data = [temperatureTrace, pulsTrace, bloodTrace];
-
-    
-    var layout = {
-  margin: {
-    l: 50,
-    r: 50,
-    b: 35,
-    t: 0,
-    pad: 4
-  },
+          line: {
+            color: '#1f77b4',
+          }
+        },
+      };
       
-      xaxis: {domain: [0.09, 0.95]}, 
-      yaxis: {
-        title: 'Temperature', 
-        titlefont: {color: '#1f77b4'}, 
-        tickfont: {color: '#1f77b4'},
-        position: 0.0
-      }, 
-      yaxis2: {
-        title: 'Heart rate', 
-        titlefont: {color: '#ff7f0e'}, 
-        tickfont: {color: '#ff7f0e'}, 
-        anchor: 'free', 
-        overlaying: 'y', 
-        side: 'right',
-        position: 0.95
-      },      
-      yaxis3: {
-        title: 'Blood pressure', 
-        titlefont: {color: '#d62728'}, 
-        tickfont: {color: '#d62728'}, 
-        anchor: 'x', 
-        overlaying: 'y', 
-        side: 'left', 
-      }, 
-    };
-    
-    Plotly.newPlot('dataGraph', data, layout);
+      var pulsTrace = {
+        x: chartData.pulse.time, 
+        y: chartData.pulse.value, 
+        name: 'Heart rate', 
+        yaxis: 'y2', 
+        type: 'scatter',
+        marker: {
+          color: '#ff7f0e',
+          line: {
+            color: '#ff7f0e',
+          }
+        },
+      };
+      
+      var bloodTrace = {
+        x: chartData.blood.time, 
+        y: chartData.blood.value, 
+        name: 'Blood pressure', 
+        yaxis: 'y3', 
+        type: 'scatter',
+        marker: {
+          color: '#d62728',
+          line: {
+            color: '#d62728',
+          }
+        },
+      };
+      
+      var data = [temperatureTrace, pulsTrace, bloodTrace];
+  
+      
+      var layout = {
+        margin: {
+          l: 50,
+          r: 50,
+          b: 35,
+          t: 0,
+          pad: 4
+        },
+        
+        xaxis: {domain: [0.09, 0.95]}, 
+        yaxis: {
+          title: 'Temperature', 
+          titlefont: {color: '#1f77b4'}, 
+          tickfont: {color: '#1f77b4'},
+          position: 0.0
+        }, 
+        yaxis2: {
+          title: 'Heart rate', 
+          titlefont: {color: '#ff7f0e'}, 
+          tickfont: {color: '#ff7f0e'}, 
+          anchor: 'free', 
+          overlaying: 'y', 
+          side: 'right',
+          position: 0.95
+        },      
+        yaxis3: {
+          title: 'Blood pressure', 
+          titlefont: {color: '#d62728'}, 
+          tickfont: {color: '#d62728'}, 
+          anchor: 'x', 
+          overlaying: 'y', 
+          side: 'left', 
+        }, 
+      };
+      
+      Plotly.newPlot('dataGraph', data, layout);
     }
 
     var signTypesOptions = null;
